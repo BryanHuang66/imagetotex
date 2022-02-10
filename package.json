@@ -1,0 +1,43 @@
+{
+    "name": "imagetotex",
+    "author": "Bryan",
+    "version": "1.0.2",
+    "license": "MIT",
+    "description": "Maybe the most powerful addon of Marginnote3",
+    "main": "",
+    "scripts": {
+        "build": "rm -rf ./dist && NODE_ENV=production rollup --config rollup.config.ts && cd ./dist && zip -qrm \"${npm_package_name}_v$npm_package_version.mnaddon\" *",
+        "dev": "NODE_ENV=development rollup -w --config rollup.config.ts",
+        "prettify": "prettier --write \"./**/*.{ts, json}\""
+    },
+    "keywords": [
+        "marginote",
+        "addon",
+        "typescript"
+    ],
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^21.0.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.5",
+        "@rollup/plugin-strip": "^2.1.0",
+        "@rollup/plugin-typescript": "^8.2.0",
+        "@types/express": "^4.17.13",
+        "@types/node-fetch": "^3.0.3",
+        "@types/text-encoding": "0.0.36",
+        "prettier": "^2.4.1",
+        "rollup": "^2.42.4",
+        "rollup-plugin-banner": "^0.2.1",
+        "rollup-plugin-copy": "^3.4.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "tslib": "^2.1.0",
+        "typescript": "^4.2.3"
+    },
+    "dependencies": {
+        "cross-fetch": "^3.1.5",
+        "express": "^4.17.2",
+        "fetch": "^1.1.0",
+        "text-encoding": "^0.7.0",
+        "xmlhttprequest": "^1.8.0",
+        "xmlhttprequest-ts": "^1.0.1"
+    }
+}
