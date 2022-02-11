@@ -72,11 +72,11 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
   else{
     if (nodeNote.comments.length && profile.mathpix.ifDelPic){
       // log(final_out_put,'txt+del')
-    nodeNote.appendTextComment(final_out_put)
+    nodeNote.appendTextComment(result_latex)
     try{deleteNoteById(note.noteId?note.noteId:"")}catch(error){log(error,'error-delete')}
     }else{
       // log(final_out_put,'txt')
-      nodeNote.appendTextComment(final_out_put)}}
+      nodeNote.appendTextComment(result_latex)}}
   // note.excerptText= ""
   // log(nodeNote,'nodeNote')
   // note.appendTextComment(result)
@@ -84,7 +84,12 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
   // log(note.originNoteId,'originNote')
   // log(note.comments,'comments')
   // log(note.groupNoteId,'groupNoteID')
-  log(final_out_put,"success")}}
+  log(final_out_put,"success")
+  if(profile.ifly.PasteBoardset || profile.mathpix.PasteBoardset){
+    UIPasteboard.generalPasteboard().string = result_latex
+    showHUD("已复制到剪贴板")
+    log(result_latex,'pasteboard')
+  }}}
 
   if(profile.ifly.clickToactivate){
     note = _note
@@ -127,18 +132,17 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
     else{
       if (nodeNote.comments.length && profile.ifly.ifDelPic){
         // log(final_out_put,'txt+del')
-      nodeNote.appendTextComment(final_out_put)
+      nodeNote.appendTextComment(result_latex)
       try{deleteNoteById(note.noteId?note.noteId:"")}catch(error){log(error,'error-delete')}
       }else{
         // log(final_out_put,'txt')
-        nodeNote.appendTextComment(final_out_put)}}
-    // note.excerptText= ""
-    // log(nodeNote,'nodeNote')
-    // note.appendTextComment(result)
-    // log(note.parentNote,'parent_node')
-    // log(note.originNoteId,'originNote')
-    // log(note.comments,'comments')
-    // log(note.groupNoteId,'groupNoteID')
-    log(final_out_put,"success")} 
+        nodeNote.appendTextComment(result_latex)}}
+    
+    log(final_out_put,"success")
+    if(profile.ifly.PasteBoardset || profile.mathpix.PasteBoardset){
+      UIPasteboard.generalPasteboard().string = result_latex
+      showHUD("已复制到剪贴板")
+      log(result_latex,'pasteboard')
+    }} 
   }
   }

@@ -31,7 +31,12 @@ const config: IConfig = {
       key:"HtmlOrTxT",
       type: cellViewType.switch,
       label:"纯文本输出", 
-    }
+    },
+    {
+      key:"PasteBoardset",
+      type:cellViewType.switch,
+      label:"复制到剪贴板"
+    },
   ],
   actions: []
 }
