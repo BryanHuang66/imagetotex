@@ -5,6 +5,7 @@ const profileType = {
     clickToactivate:false,
     ifDelPic:false,
     HtmlOrTxT:false,
+    PasteBoardset:false,
     panelPostion: [0],
     panelHeight: [1],
     doubleClick: false
@@ -16,6 +17,7 @@ const profileType = {
     clickToactivate:false,
     ifDelPic:false,
     HtmlOrTxT:false,
+    PasteBoardset:false,
   }
 }
 
