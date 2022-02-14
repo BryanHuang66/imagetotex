@@ -143,7 +143,7 @@ const onInputOver: eventHandler = sender => {
 // 不管是创建摘录还是修改摘录，都会提前触发这个事件，所以要判断一下，在修改之前保存上次摘录
 let isProcessNewExcerpt = false
 let isChangeExcerptRange = false
-let lastExcerptText = "😎"
+let  lastExcerptText = "😎"
 const onPopupMenuOnNote: eventHandler = async sender => {
   if (!isThisWindow(sender, self.window)) return
   const note = <MbBookNote>sender.userInfo.note
@@ -164,8 +164,10 @@ const onChangeExcerptRange: eventHandler = sender => {
   log("修改摘录", "excerpt")
   if (!isThisWindow(sender, self.window)) return
   log("修改摘录", "excerpt")
+  lastExcerptText = ""
   const note = getNoteById(sender.userInfo.noteid)
   isChangeExcerptRange = true
+  log(lastExcerptText,"excerpt--")
   handleExcerpt(note, lastExcerptText)
 }
 

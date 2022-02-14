@@ -37,6 +37,17 @@ const config: IConfig = {
       type:cellViewType.switch,
       label:"复制到剪贴板"
     },
+    {
+      key:"prefixOutput",
+      type:cellViewType.inlineInput,
+      label:"前缀"
+    },
+    {
+      key:"suffixOutput",
+      type:cellViewType.inlineInput,
+      label:"后缀"
+    }
+    
   ],
   actions: []
 }
