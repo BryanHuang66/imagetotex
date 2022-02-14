@@ -38,6 +38,11 @@ const checkInputCorrect = (text: string, key: string): boolean => {
       case "APPID":
       
         break
+      case "prefixOutput":
+        break
+
+      case "suffixOutput":
+        break
       case "changeColorSelected": {
         const index = Number(text)
         if (!Number.isInteger(index)) throw ""

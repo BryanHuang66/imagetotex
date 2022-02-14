@@ -6,6 +6,8 @@ const profileType = {
     ifDelPic:false,
     HtmlOrTxT:false,
     PasteBoardset:false,
+    prefixOutput: "",
+    suffixOutput: "",
     panelPostion: [0],
     panelHeight: [1],
     doubleClick: false
@@ -18,6 +20,8 @@ const profileType = {
     ifDelPic:false,
     HtmlOrTxT:false,
     PasteBoardset:false,
+    prefixOutput: "",
+    suffixOutput: "",
   }
 }
 

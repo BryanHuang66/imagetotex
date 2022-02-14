@@ -30,7 +30,7 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
   // log(nodeNote,'shownodenote')
   // log(note.excerptPic,'info')
   // log(note.excerptText,'info')
-  // log(lastExcerptText,'lastexcerpt')
+  log(lastExcerptText,'lastexcerpt')
   if (note.excerptPic && lastExcerptText=="😎"){
   var pic_input = note.excerptPic
   var hash = (pic_input?.paint) ? pic_input.paint : ""
@@ -49,6 +49,8 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
   const result_latex = result.latex_styled
   const result_height = result.position.height
   const result_width = result.position.width
+  const prefix = profile.mathpix.prefixOutput
+  const suffix = profile.mathpix.suffixOutput
   log(result_height,"result_height")
   // showHUD(result)
   // log(result,'result')
@@ -86,7 +88,7 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
   // log(note.groupNoteId,'groupNoteID')
   log(final_out_put,"success")
   if(profile.ifly.PasteBoardset || profile.mathpix.PasteBoardset){
-    UIPasteboard.generalPasteboard().string = result_latex
+    UIPasteboard.generalPasteboard().string = prefix + result_latex + suffix
     showHUD("已复制到剪贴板")
     log(result_latex,'pasteboard')
   }}}
@@ -99,7 +101,7 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
     // log(nodeNote,'shownodenote')
     // log(note.excerptPic,'info')
     // log(note.excerptText,'info')
-    // log(lastExcerptText,'lastexcerpt')
+    log(lastExcerptText,'lastexcerpt')
     if (note.excerptPic && lastExcerptText=="😎"){
     var pic_input = note.excerptPic
     var hash = (pic_input?.paint) ? pic_input.paint : ""
@@ -117,6 +119,8 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
     const result = await ifly.getLatex(pic_base64)
     const result_latex = result.latex_info
     const final_out_put = "```math\n"+result_latex+"\n```"
+    const prefix = profile.ifly.prefixOutput
+    const suffix = profile.ifly.suffixOutput
     // const index = getCommentIndex(nodeNote, note)
 
     nodeNote = note.groupNoteId ? getNoteById(note.groupNoteId) : note 
@@ -140,7 +144,7 @@ export default async (_note: MbBookNote, _lastExcerptText?: string) => {
     
     log(final_out_put,"success")
     if(profile.ifly.PasteBoardset || profile.mathpix.PasteBoardset){
-      UIPasteboard.generalPasteboard().string = result_latex
+      UIPasteboard.generalPasteboard().string = prefix + result_latex + suffix
       showHUD("已复制到剪贴板")
       log(result_latex,'pasteboard')
     }} 
